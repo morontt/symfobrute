@@ -1,0 +1,18 @@
+{
+    "name": "root/symfobrute",
+    "description": "symfony2 bruteforce password",
+    "type": "application",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "morontt",
+            "email": "morontt@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4",
+        "symfony/security": "2.3.*"
+    }
+}
