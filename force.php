@@ -32,11 +32,13 @@ try {
 
 $encoder = new \Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder();
 
-$upd = $db->prepare('UPDATE `user` SET `checked` = 1 WHERE `id` = :id');
-$success = $db->prepare('UPDATE `user` SET `checked` = 1, `plain_password` = :password WHERE `id` = :id');
+$userTable = $config['table'];
+
+$upd = $db->prepare("UPDATE `{$userTable}` SET `checked` = 1 WHERE `id` = :id");
+$success = $db->prepare("UPDATE `{$userTable}` SET `checked` = 1, `plain_password` = :password WHERE `id` = :id");
 
 do {
-    $sth = $db->query('SELECT * FROM `user` WHERE `checked` = 0 AND `plain_password` IS NULL LIMIT 1', \PDO::FETCH_ASSOC);
+    $sth = $db->query("SELECT * FROM `{$userTable}` WHERE `checked` = 0 AND `plain_password` IS NULL LIMIT 1", \PDO::FETCH_ASSOC);
     $count = $sth->rowCount();
 
     $item = $sth->fetch();
