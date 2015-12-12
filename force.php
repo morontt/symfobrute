@@ -30,7 +30,11 @@ try {
     exit(1);
 }
 
-$encoder = new \Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder();
+$encoder = new \Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder(
+    $config['algorithm'],
+    $config['encode_hash_as_base64'],
+    $config['iterations']
+);
 
 $userTable = $config['table'];
 

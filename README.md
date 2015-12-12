@@ -17,7 +17,7 @@ ALTER TABLE `user` ADD `checked` TINYINT NOT NULL DEFAULT 0,
     ADD `plain_password` VARCHAR(255) NULL DEFAULT NULL;
 ```
 
-Далее копируем и редактируем файл настроек (подключение к БД):
+Далее копируем и редактируем файл настроек (подключение к БД и настройки хеширования):
 
 ```sh
 cp config.sample.php config.php
